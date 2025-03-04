@@ -2,7 +2,7 @@
 
 
 :root {
-    --accent-color: aquamarine;
+    --accent-color: rgb(156, 133, 5);
 }
 
 * {
@@ -34,9 +34,12 @@ nav {
 }
 
 .logo {
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 2rem;
     font-weight: bold;
+    font-size: 70px;
+    margin-left: 2.3vw;
+    margin-top: 3vh;
 }
 
 .logo span {
@@ -193,15 +196,16 @@ section {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 3rem;
+    width: 8rem;
     height: 3rem;
     background-color: transparent;
     border: 0.2rem solid var(--accent-color);
-    border-radius: 50%;
+    border-radius: 10%;
     color: var(--accent-color);
-    margin: 5px 15px;
     font-size: 1.5rem;
     transition: 0.2s linear;
+    margin-left: 5%;
+    margin-top: 1%;
 }
 
 .social-links i:hover {
@@ -271,6 +275,9 @@ section {
         width: 50%;
         height: 60%;
     }
+    .image{
+        margin-top: 10vh;
+    }
 }
 
 @media (max-width:440px) {
@@ -287,4 +294,5 @@ section {
     .main-container button {
         margin-top: 15px;
     }
+    
 }
