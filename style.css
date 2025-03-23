@@ -1,5 +1,7 @@
+/* Importați fontul */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
+/* Setări globale */
 :root {
     --accent-color: rgb(156, 133, 5);
     --background-color: black;
@@ -17,11 +19,14 @@
     --dropdown-bg: rgba(0, 0, 0, 0.4);
     --box-shadow-color: black;
 }
-
+#settings {
+    display: none;
+}
+/* Comutator temă */
 #theme-switch {
-    position: fixed;
-    top: 10px;
-    right: 10px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
     z-index: 10000;
     height: 50px;
     width: 50px;
@@ -37,10 +42,7 @@
     fill: var(--accent-color);
 }
 
-.lightmode #theme-switch svg:last-child {
-    display: none;
-}
-
+.lightmode #theme-switch svg:last-child,
 #theme-switch svg:first-child {
     display: none;
 }
@@ -49,6 +51,8 @@
     display: block;
 }
 
+
+/* Resetare stiluri de bază */
 * {
     padding: 0;
     margin: 0;
@@ -56,6 +60,7 @@
     box-sizing: border-box;
 }
 
+/* Body */
 body {
     width: 100%;
     height: 100vh;
@@ -63,6 +68,7 @@ body {
     background-color: var(--background-color);
 }
 
+/* Navigare */
 nav {
     width: 100%;
     height: 10vh;
@@ -80,13 +86,12 @@ nav {
     align-items: center;
 }
 
+/* Logo */
 .logo {
-    
     color: var(--text-color);
     font-size: 2rem;
     font-weight: bold;
     margin-left: 3vw;
-    margin-top: 0vh;
 }
 
 .logo span {
@@ -94,7 +99,9 @@ nav {
     text-shadow: 0 0 10px var(--accent-color);
 }
 
-.hamburg, .cancel {
+/* Meniu navigare */
+.hamburg,
+.cancel {
     cursor: pointer;
     position: absolute;
     right: 15px;
@@ -105,8 +112,7 @@ nav {
 }
 
 .nav-container .links {
-    margin-left: 30vw;
-    margin-right: 3vw;
+    margin: 0 3vw 0 30vw;
     display: flex;
 }
 
@@ -138,32 +144,40 @@ nav {
     color: var(--nav-link-hover);
 }
 
+/* Dropdown */
 .dropdown {
+    text-decoration: none;
+    background-color: var(--accent-color);
+    border: solid;
+    border-color: white;
+    border-radius: 0 0 0 40px;
     z-index: 100;
     position: absolute;
     top: 0;
-    transform: translateY(-500px);
-    width: 100%;
+    transform: translateX(100%);
+    width: 20%;
     height: auto;
-    backdrop-filter: blur(4px) brightness(40%);
-    box-shadow: 0 0 20px var(--box-shadow-color);
     transition: 0.2s linear;
 }
 
-.dropdown .links a {
+.dropdown a {
+    
     display: flex;
     color: var(--text-color);
     text-decoration: none;
     justify-content: center;
-    padding: 15px 0;
+    padding: 10px 0;
     align-items: center;
     transition: 0.2s linear;
+    color: white;
+    text-decoration: none;
 }
 
 .dropdown .links a:hover {
     background-color: var(--accent-color);
 }
 
+/* Secțiune principală */
 section {
     width: 100%;
     height: 90vh;
@@ -178,33 +192,41 @@ section {
 }
 
 .main-container .image {
+    z-index: -50;
     width: 500px;
     height: 80vh;
     border-radius: 100%;
     overflow: hidden;
-    box-shadow: 0 0 30px var(--accent-color);
+    box-shadow: 0 0 30px var(--acc ent-color);
 }
 
 .main-container .image img {
     width: 100%;
     height: auto;
-    position: relative;  
+    position: relative;
 }
 
 .main-container .image:hover {
     animation: animate 1.5s ease-in-out infinite;
 }
 
+/* Keyframes */
 @keyframes animate {
-    0% { scale: 1; }
-    50% { scale: 1.05; }
-    100% { scale: 1; }
+    0% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.05;
+    }
+    100% {
+        scale: 1;
+    }
 }
 
-.main-container .content {
+/* Conținut */
+.content {
     color: var(--text-color);
     width: 40%;
-    min-height: 100px;
 }
 
 .content h1 {
@@ -227,11 +249,11 @@ section {
 }
 
 .content p {
-    font-size: clamp(0.4rem, 0.2rem + 9vw, 1rem);
-    margin: 10px 0;
     font-size: 1.4rem;
+    margin: 10px 0;
 }
 
+/* Legături sociale */
 .social-links i {
     display: inline-flex;
     justify-content: center;
@@ -254,6 +276,7 @@ section {
     filter: drop-shadow(0 0 10px var(--accent-color));
 }
 
+/* Button */
 .content button {
     display: inline-flex;
     justify-content: center;
@@ -275,4 +298,161 @@ section {
     border: 2px solid var(--accent-color);
     background-color: transparent;
     box-shadow: 0 0 40px var(--accent-color);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .logo {
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 5px;
+        padding: none;
+    }
+    #theme-switch {
+        display: none;
+    }
+    #theme-switch-1 {
+        position: absolute;
+        right: 37px;
+        top: 225px;
+        z-index: 10000;
+        height: 40px;
+        width: 45px;
+        padding: 0;
+        border: none;
+        border-radius: 0 0 0 40px;
+        border-color: var(--text-color);
+        background-color: var(--text-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    #settings {
+        position: absolute;
+        display: flex;
+        border: none;
+        width: 45px;
+        justify-content: center;
+        right: 0px;
+        padding: 0;
+        height: 40px;
+        top: 225px;
+        align-items: center;
+        background-color: var(--text-color);
+    }
+    
+    #settings svg {
+        fill: var(--accent-color);
+        margin-left: 7px;
+    }
+    #theme-switch-1 svg {
+        fill: var(--accent-color);
+        margin-left: 10px;
+    }
+    
+    .lightmode #theme-switch-1 svg:last-child,
+    #theme-switch svg:first-child {
+        display: none;
+    }
+    
+    .lightmode #theme-switch-1 svg:first-child {
+        display: block;
+    }
+    
+    .nav-container {
+        z-index: 10000;
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    .nav-container .links {
+        display: none;
+        color: white;
+    }
+
+    .hamburg {
+    display: block; 
+    z-index: 1001; 
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: var(--text-color);
+    font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+    cursor: pointer;
+    }
+
+    .dropdown {
+        display: block;
+        width: 20%;
+        right: 0;
+    }
+
+    .dropdown.active .hamburg {
+        display: block; 
+    }
+    .dropdown.active {
+        display: flex;
+        flex-direction: column;
+        transform: translateX(0);
+        z-index: 10000;
+    }
+    .dropdown .a{
+        text-decoration: none;
+    }
+    .main-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .main-container .image {
+        width: 100%;
+        height: auto;
+    }
+
+    .content {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content h1 {
+        font-size: 2rem;
+    }
+
+    .content .typewriter {
+        font-size: 1.5rem;
+    }
+
+    .social-links i {
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.2rem;
+        color: white;
+    }
+
+    .content button {
+        font-size: 1.8rem;
+        width: 110%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .nav-container .links {
+        display: flex !important;
+    }
+    .dropdown{
+        display: none;
+    }
+    .hamburg {
+        display: none;
+    }
 }

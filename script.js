@@ -1,68 +1,45 @@
-function hamburg() {
-  const navbar = document.querySelector(".dropdown");
-  navbar.style.transform = "translateY(0px)";
+// Funcție pentru meniul hamburger
+function toggleMenu() {
+    document.querySelector(".dropdown").classList.toggle("active");
 }
 
-function cancel() {
-  const navbar = document.querySelector(".dropdown");
-  navbar.style.transform = "translateY(-500px)";
-}
-
+// Funcție pentru efectul de scriere
 const texts = ["DEVELOPER", "DESIGNER", "STUDENT"];
-let speed = 100;
-const textElements = document.querySelector(".typewriter-text");
-let textIndex = 0;
-let charIndex = 0;
+let index = 0, charIndex = 0, speed = 100;
+const textElement = document.querySelector(".typewriter-text");
 
 function typeWriter() {
-  if (charIndex < texts[textIndex].length) {
-    textElements.innerHTML += texts[textIndex].charAt(charIndex);
-    charIndex++;
-    setTimeout(typeWriter, speed);
-  } else {
-    setTimeout(eraseText, 1000);
-  }
+    if (charIndex < texts[index].length) {
+        textElement.innerHTML += texts[index].charAt(charIndex);
+        charIndex++;
+        setTimeout(typeWriter, speed);
+    } else {
+        setTimeout(eraseText, 1000);
+    }
 }
 
 function eraseText() {
-  if (textElements.innerHTML.length > 0) {
-    textElements.innerHTML = textElements.innerHTML.slice(0, -1);
-    setTimeout(eraseText, 50);
-  } else {
-    textIndex = (textIndex + 1) % texts.length;
-    charIndex = 0;
-    setTimeout(typeWriter, 500);
-  }
+    if (textElement.innerHTML.length > 0) {
+        textElement.innerHTML = textElement.innerHTML.slice(0, -1);
+        setTimeout(eraseText, 50);
+    } else {
+        index = (index + 1) % texts.length;
+        charIndex = 0;
+        setTimeout(typeWriter, 500);
+    }
 }
 
 window.onload = typeWriter;
 
+// Funcție pentru schimbarea temei
 const themeSwitch = document.getElementById("theme-switch");
-const img = document.querySelector(".image img");
-
-let lightmode = localStorage.getItem("lightmode");
-
-const enableLightmode = () => {
-  document.body.classList.add("lightmode");
-  if (img) img.src = "Imagini/Par Lung Alb.png";
-  localStorage.setItem("lightmode", "active");
-};
-
-const disableLightmode = () => {
-  document.body.classList.remove("lightmode");
-  if (img) img.src = "Imagini/Par Scurt Negru.png";
-  localStorage.setItem("lightmode", "inactive");
-};
-
-if (lightmode === "active") {
-  enableLightmode();
-}
 
 themeSwitch.addEventListener("click", () => {
-  lightmode = localStorage.getItem("lightmode");
-  if (lightmode !== "active") {
-    enableLightmode();
-  } else {
-    disableLightmode();
-  }
+    document.body.classList.toggle("lightmode");
+    localStorage.setItem("lightmode", document.body.classList.contains("lightmode") ? "active" : "inactive");
 });
+
+// Verifică tema salvată
+if (localStorage.getItem("lightmode") === "active") {
+    document.body.classList.add("lightmode");
+}
