@@ -33,13 +33,33 @@ window.onload = typeWriter;
 
 // Funcție pentru schimbarea temei
 const themeSwitch = document.getElementById("theme-switch");
+const themeImage = document.getElementById("imgimg");
 
 themeSwitch.addEventListener("click", () => {
     document.body.classList.toggle("lightmode");
+    if (document.body.classList.contains("lightmode")) {
+        themeImage.src = "Imagini/Par Lung Alb.png"; // Corrected path and variable
+    } else {
+        themeImage.src = "Imagini/Par Scurt Negru.png"; // Corrected path and variable
+    }
     localStorage.setItem("lightmode", document.body.classList.contains("lightmode") ? "active" : "inactive");
 });
 
-// Verifică tema salvată
+const themeSwitch1 = document.getElementById("theme-switch-1"); // Selectează al doilea buton
+
+themeSwitch1.addEventListener("click", () => {
+    document.body.classList.toggle("lightmode");
+    if (document.body.classList.contains("lightmode")) {
+        themeImage.src = "Imagini/Par Lung Alb.png"; // Imagine pentru modul luminos
+    } else {
+        themeImage.src = "Imagini/Par Scurt Negru.png"; // Imagine pentru modul întunecat
+    }
+    localStorage.setItem("lightmode", document.body.classList.contains("lightmode") ? "active" : "inactive");
+});
+
 if (localStorage.getItem("lightmode") === "active") {
     document.body.classList.add("lightmode");
+    themeImage.src = "Imagini/Par Lung Alb.png"; // Corrected path and variable
+} else {
+    themeImage.src = "Imagini/Par Scurt Negru.png"; // Corrected path and variable
 }
