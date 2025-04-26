@@ -1,0 +1,221 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Color Variables */
+:root {
+    --primary-color: #6a5216;
+    --secondary-color: #e5e2d7; /* A richer golden shade */
+    --accent-color: #341928;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--secondary-color);
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body takes up the full viewport height */
+    margin: 0;
+}
+.title {
+    padding: 0 2vw; /* Corrected padding */
+    text-align: left;
+    margin-top: -1vh;
+    margin-left: -3vw;
+    margin-bottom: 5vh;
+    font-size: 1em;
+    color: var(--primary-color);
+}
+.title h1{
+    letter-spacing: 0.001rem;
+}
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image-container img {
+    max-width: 90%;
+    height: auto;
+    border: solid var(--primary-color) 2px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+.rest a{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 7vh;
+    width: 20vh;
+    text-decoration: none;
+    font-size: 3.5em;
+    color: var(--primary-color);
+    border: solid var(--primary-color) 2px;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+    margin-bottom: 2vh;
+}
+.rest h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--accent-color);
+    font-size: 2.2rem;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.rest h2{
+    color: var(--accent-color);
+    font-size: 1.4rem;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+    text-align: center; /* Centers the entire block of text */
+}
+.rest h2 span a.aboutme {
+    color: var(--primary-color);
+    font-size: 1.4rem;
+    border: none;
+    text-decoration: none; /* Removes underline */
+    font-weight: normal;
+    display: inline; /* Ensures the link stays inline with the text */
+}
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Use 100% to avoid scrollbar offset */
+    margin: 0 auto; /* Centers the footer horizontally */
+    position: relative; 
+    bottom: 0;
+    background: var(--secondary-color);
+    color: var(--primary-color);
+    border: solid;
+    border-color: var(--primary-color);
+    border-radius: 10px;
+    border-width: 2px;
+    margin-top: auto; 
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    position: relative;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex; /* Keep flex for layout */
+    flex-direction: column;
+    justify-content: center; /* Center items vertically */
+    position: fixed; /* Fixed to slide in from the right */
+    top: 0;
+    right: -100%; /* Initially hidden off-screen */
+    height: 25vh; /* Full viewport height */
+    width: 25vw; /* Set the width of the sliding menu */
+    background-color: var(--secondary-color);
+    border-left: 2px solid var(--primary-color); /* Top border */
+    border-bottom: 2px solid var(--primary-color); /* Bottom border */
+    padding: 2px;
+    transition: right 0.3s ease-in-out; /* Smooth sliding effect */
+    z-index: 1000; /* Ensure it appears above other elements */
+    border-radius: 0 0 0 20px; /* Rounded corners on the left side */
+}
+
+.nav-links.active {
+    right: 0; /* Slide the menu into view */
+}
+
+.nav-links li {
+    margin: 20px 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.nav-links li:nth-child(2),li:nth-child(3) {
+    visibility: hidden; /* Hides the links but keeps their space */
+    height: 15vh; /* Ensures they still take up space */
+}
+
+/* Hamburger button */
+.hamburger {
+    position: absolute;
+    top: 2vh;
+    right: 10vw;
+    z-index: 1001;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 1.5vh;
+    right: 9vw;;
+    z-index: 1009;
+    cursor: pointer;
+    font-size: 2.9rem;
+    color: var(--primary-color);
+    display: none; /* Hidden by default */
+}
+
+/* Show the close button when the navbar is active */
+
+
+.nav-links.active + .close-btn {
+    display: block;
+}
+
+
+
+.hamburger {
+    font-size: 2.7rem;
+    cursor: pointer;
+    display: block; /* Visible by default */
+    position: absolute; /* Position it relative to the navbar */
+    top: -0.1vh; /* Adjust the vertical position */
+    right: 3vw; /* Move it to the right corner */
+    z-index: 1100; /* Ensure it stays above the menu */
+}
+
+.nav-links.active ~ .hamburger {
+    display: none;
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none; /* Hide hamburger on larger screens */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        position: static;
+        background: none;
+        border: none;
+        padding: 0;
+    }
+
+}   .nav-links li {
+        margin: 0 15px;
+    }
+

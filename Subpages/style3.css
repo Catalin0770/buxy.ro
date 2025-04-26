@@ -1,0 +1,198 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Color Variables */
+:root {
+  --primary-color: #6a5216;
+  --secondary-color: #e5e2d7; /* A richer golden shade */
+  --accent-color: #341928;
+}
+
+/* Body Styling */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: var(--secondary-color);
+  color: #333;
+}
+
+.text-container {
+  display: flex-column;
+  justify-content: center;
+  align-items: center;
+  text-align: left; /* Centers the text block */
+  margin-top: 0vh;
+  padding-left: 10vw;
+}
+
+.text-container p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+  font-size: 1.1rem;
+}
+.text-container p span {
+  margin-bottom: 0vh; /* Add spacing between paragraphs */
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  text-align: center;
+  margin-left: -10vw;
+}
+.text-container h1 {
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+  font-size: 3rem;
+  text-align: center;
+  text-decoration: underline;
+  margin-left: -10vw;
+}
+.text-container h2 {
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+  font-size: 2rem;
+  text-align: center;
+  margin-left: -10vw;
+}
+.text-container .pic{
+  max-width: 100%;
+  max-height: 100%;
+  margin-left: -5vw;
+  border: solid;
+  border-color: var(--primary-color);
+  border-radius: 40px;
+}
+.t2 p {
+  text-align: left;
+  font-size: 1.3rem;
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+}
+
+/* Title Styling */
+.title {
+  padding: 0 2vw; /* Corrected padding */
+  text-align: left;
+  margin-top: -1vh;
+  margin-left: -3vw;
+  margin-bottom: -5vh;
+  font-size: 1em;
+  color: var(--primary-color);
+}
+
+.title h1 {
+  letter-spacing: 0.001rem;
+}
+
+/* Footer Styling */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 95%; /* Use 100% to avoid scrollbar offset */
+  margin: 0 auto; /* Centers the footer horizontally */
+  position: relative; 
+  bottom: 0;
+  background: var(--secondary-color);
+  color: var(--primary-color);
+  border: solid;
+  border-color: var(--primary-color);
+  border-radius: 10px;
+  border-width: 2px;
+  margin-top: auto; 
+  height: 30px;
+  bottom: 1vh;;
+}
+
+/* Navbar Styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5px;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex; /* Keep flex for layout */
+  flex-direction: column;
+  justify-content: center; /* Center items vertically */
+  position: fixed; /* Fixed to slide in from the right */
+  top: 0;
+  right: -100%; /* Initially hidden off-screen */
+  height: 25vh; /* Full viewport height */
+  width: 25vw; /* Set the width of the sliding menu */
+  background-color: var(--secondary-color);
+  border-left: 2px solid var(--primary-color); /* Top border */
+  border-bottom: 2px solid var(--primary-color); /* Bottom border */
+  padding: 2px;
+  transition: right 0.3s ease-in-out; /* Smooth sliding effect */
+  z-index: 1000; /* Ensure it appears above other elements */
+  border-radius: 0 0 0 20px; /* Rounded corners on the left side */
+}
+
+.nav-links.active {
+  right: 0; /* Slide the menu into view */
+}
+
+.nav-links li {
+  margin: 20px 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Hamburger button */
+.hamburger {
+  position: absolute;
+  top: 2vh;
+  right: 10vw;
+  z-index: 1001;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 1.5vh;
+  right: 9vw;
+  z-index: 1009;
+  cursor: pointer;
+  font-size: 2.9rem;
+  color: var(--primary-color);
+  display: none; /* Hidden by default */
+}
+
+.nav-links.active + .close-btn {
+  display: block;
+}
+
+/* Desktop View */
+@media (min-width: 768px) {
+  .hamburger {
+    display: none; /* Hide hamburger on larger screens */
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+
+  .nav-links li {
+    margin: 0 15px;
+  }
+}
+

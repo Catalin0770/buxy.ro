@@ -1,0 +1,99 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+.text-container{
+  display: flex-column;
+  justify-content: center;  
+  align-items: center;
+  text-align: center; /* Centers the text block */
+  margin-top: -6vh;
+}
+.text-container p {
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+  font-size: 1.1rem;
+}
+.text-container h1 {
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+  font-size: 3rem;
+}
+.text-container h1 span{
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+  font-size: 3rem;
+  text-decoration: underline;
+}
+.t2 p{
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+}
+.t2 p span{
+  text-align: center;
+  font-size: 1.3rem;
+  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+  color: var(--primary-color);
+}
+.pic-ctn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100vw; /* Use viewport width to ensure it matches the screen size */
+  height: 30vh;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+  overflow: hidden; /* Prevent content from overflowing the container */
+}
+
+.pic-ctn > img {
+  position: absolute; /* Center vertically */
+  left: 13%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Adjust for both dimensions */
+  object-fit: cover;
+  opacity: 0;
+  animation: display 15s infinite; /* Increased duration to ensure even spacing */
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 40px;
+  padding: 0; /* Ensure no padding is applied */
+}
+
+@keyframes display {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  5% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+img:nth-child(1) {
+  animation-delay: 0s; /* Ensure the first image starts immediately */
+}
+img:nth-child(2) {
+  animation-delay: 3s; /* Adjusted delay for even spacing */
+}
+img:nth-child(3) {
+  animation-delay: 6s;
+}
+img:nth-child(4) {
+  animation-delay: 9s;
+}
+img:nth-child(5) {
+  animation-delay: 12s;
+}
