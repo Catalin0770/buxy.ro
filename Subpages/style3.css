@@ -4,6 +4,8 @@ html, body {
   overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
+
+
 /* Color Variables */
 :root {
   --primary-color: #6a5216;
@@ -25,7 +27,8 @@ body {
   align-items: center;
   text-align: left; /* Centers the text block */
   margin-top: 0vh;
-  padding-left: 10vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
 }
 
 .text-container p {
@@ -33,32 +36,28 @@ body {
   justify-content: center;
   align-items: center;
   margin-bottom: 1.5vh; /* Add spacing between paragraphs */
-  font-size: 1.1rem;
+  font-size: 1.3rem;
 }
 .text-container p span {
   margin-bottom: 0vh; /* Add spacing between paragraphs */
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--primary-color);
   text-align: center;
-  margin-left: -10vw;
 }
 .text-container h1 {
-  margin-bottom: 1.5vh; /* Add spacing between paragraphs */
+  margin-bottom: 0.5vh; /* Add spacing between paragraphs */
   font-size: 3rem;
   text-align: center;
   text-decoration: underline;
-  margin-left: -10vw;
 }
 .text-container h2 {
   margin-bottom: 1.5vh; /* Add spacing between paragraphs */
   font-size: 2rem;
   text-align: center;
-  margin-left: -10vw;
 }
 .text-container .pic{
   max-width: 100%;
   max-height: 100%;
-  margin-left: -5vw;
   border: solid;
   border-color: var(--primary-color);
   border-radius: 40px;
@@ -75,7 +74,7 @@ body {
   text-align: left;
   margin-top: -1vh;
   margin-left: -3vw;
-  margin-bottom: -5vh;
+  margin-bottom: 1vh;
   font-size: 1em;
   color: var(--primary-color);
 }
@@ -121,9 +120,9 @@ footer {
   flex-direction: column;
   justify-content: center; /* Center items vertically */
   position: fixed; /* Fixed to slide in from the right */
-  top: 0;
+  top: -2%;
   right: -100%; /* Initially hidden off-screen */
-  height: 25vh; /* Full viewport height */
+  height: 30vh; /* Full viewport height */
   width: 25vw; /* Set the width of the sliding menu */
   background-color: var(--secondary-color);
   border-left: 2px solid var(--primary-color); /* Top border */
@@ -163,11 +162,11 @@ footer {
 /* Close button */
 .close-btn {
   position: absolute;
-  top: 1.5vh;
-  right: 9vw;
+  top: 2vh;
+  right: 10vw;
   z-index: 1009;
   cursor: pointer;
-  font-size: 2.9rem;
+  font-size: 3.5rem;
   color: var(--primary-color);
   display: none; /* Hidden by default */
 }
@@ -193,6 +192,95 @@ footer {
 
   .nav-links li {
     margin: 0 15px;
+  }
+}
+
+/* Additional Navbar Styling */
+.nav-links {
+  height: 30vh; /* Full viewport height */
+  width: 10vw; /* Set the width of the sliding menu */
+}
+
+.nav-links li {
+  margin: 0 0;
+  margin-left: 20px;
+}
+
+.nav-links a {
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.nav-links li:nth-child(2), .nav-links li:nth-child(3) {
+  visibility: hidden; /* Hides the links but keeps their space */
+  height: 15vh; /* Ensures they still take up space */
+  display: block; /* Ensures the layout of the navbar remains intact */
+}
+
+
+.nav-links.active ~ .hamburger {
+  display: none;
+}
+
+/* Media Queries */
+
+/* Small Phones (max-width: 480px) */
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0px 0px;
+  }
+  .nav-links {
+    width: 30vw;
+    height: 30vh; /* Full viewport height */
+    text-align: center; /* Center the text in the menu */
+  }
+  .nav-links a {
+    margin-left: -20px;
+  }
+  .hamburger {
+    font-size: 3rem;
+  }
+  .close-btn {
+    font-size: 3.5rem;
+  }
+}
+
+/* Large Phones (min-width: 481px and max-width: 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar {
+    padding: 8px 4px;
+  }
+  .nav-links {
+    width: 40vw;
+  }
+  .hamburger {
+    font-size: 2.3rem;
+  }
+}
+
+/* Tablets (min-width: 769px and max-width: 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .navbar {
+    padding: 10px 5px;
+  }
+  .nav-links {
+    width: 30vw;
+  }
+  .hamburger {
+    font-size: 2.5rem;
+  }
+}
+
+/* PCs (min-width: 1025px) */
+@media (min-width: 1025px) {
+  .navbar {
+    padding: 10px 5px;
+  }
+  .nav-links {
+    width: 25vw;
+  }
+  .hamburger {
+    font-size: 2.7rem;
   }
 }
 
